@@ -31,6 +31,19 @@ struct ContentView: View {
                 Capsule(style: .continuous)
                     .stroke(.blue, style: StrokeStyle(lineWidth: 5))
             )
+            
+            Button {
+                viewModel.pickDuoWord(isUsingCombine: false)
+            } label: {
+                Text("pick duo word")
+                    .font(.system(size: 18))
+                    .padding()
+                    .foregroundColor(.mint)
+            }
+            .overlay(
+                Capsule(style: .continuous)
+                    .stroke(.mint, style: StrokeStyle(lineWidth: 5))
+            )
         }
     }
 }
