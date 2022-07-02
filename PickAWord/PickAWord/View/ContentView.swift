@@ -8,9 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ContentViewModel()
+    
     var body: some View {
-        Text("Please, pick some word to say!")
-            .padding()
+        VStack {
+            Text("Please, pick some word to say!")
+                .padding()
+            
+            Text(viewModel.pickedWord)
+                .foregroundColor(.green)
+                .padding()
+            
+            Button {
+                viewModel.pickAWord(isUsingCombine: true)
+            } label: {
+                Text("pick a word")
+                    .font(.system(size: 18))
+                    .padding()
+                    .foregroundColor(.blue)
+            }
+            .overlay(
+                Capsule(style: .continuous)
+                    .stroke(.blue, style: StrokeStyle(lineWidth: 5))
+            )
+        }
     }
 }
 
